@@ -1,0 +1,36 @@
+.elements {
+  width: 68.7%;
+  margin: 0 auto;
+  margin-top: 50px;
+  object-fit: contain;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(282px, 1fr));
+  grid-template-rows: auto;
+  grid-column-gap: 17px;
+  grid-row-gap: 20px;
+;
+}
+
+@media screen and (max-width: 1279px) {
+    .elements {
+    grid-template-columns: repeat(3, minmax(225px, 1fr));
+    grid-column-gap: 13px;
+    grid-row-gap: 15px;
+}
+}
+
+@media screen and (max-width: 1023px) {
+    .elements {
+      width: 90%;
+      grid-template-columns: repeat(2, minmax(335px, 1fr));
+      grid-column-gap: 20px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .elements {
+      width: 88.1%;
+      grid-template-columns: repeat(1, minmax(282px, 1fr));
+      margin-top: 36px;
+    }
+  }

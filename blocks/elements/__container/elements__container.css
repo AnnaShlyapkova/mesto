@@ -1,0 +1,7 @@
+.elements__container {
+  display: flex;
+  justify-content: space-between;
+  width: 87.2%;
+  height: 23px;
+  padding: 25px 15px 31px 21px;
+}
