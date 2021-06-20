@@ -11,23 +11,24 @@ const profileJobElement = document.querySelector('.profile__description')
 
 console.log(formJobElement, formNameElememt, profileJobElement, profileNameElement);
 
-const OpenPopup = function () {
+const openPopup = function () {
     formNameElememt.value = profileNameElement.textContent;
     formJobElement.value = profileJobElement.textContent;
     popupElement.classList.add('popup_is-opened')
 }
 
-const ClosePopup = function() {
+const closePopup = function() {
     popupElement.classList.remove('popup_is-opened')
 }
 
-popupOpenElement.addEventListener('click', OpenPopup);
-popupCloseElement.addEventListener('click', ClosePopup);
+popupOpenElement.addEventListener('click', openPopup);
+popupCloseElement.addEventListener('click', closePopup);
 
 function formSubmitHandler(evt) {
     evt.preventDefault(); 
     profileNameElement.textContent = formNameElememt.value;
     profileJobElement.textContent = formJobElement.value;
+    closePopup();
 }
 formElement.addEventListener('submit', formSubmitHandler); 
 
