@@ -9,6 +9,7 @@
   border-radius: 2px;
   margin: 18px auto 0;
   cursor: pointer;
+  border: none;
 }
 
 .popup__submit-button:hover {

@@ -5,12 +5,14 @@
   background-color: transparent;
   border: solid 2px #fff;
   margin-left: auto;
+  border-radius: 2px;
 }
 
 @media screen and (max-width: 767px) {
   .profile__add-button {
     width: 282px;
     margin: 36px auto 0;
+    background-size: 16px;
   }
 }
 .profile__add-button:hover {
