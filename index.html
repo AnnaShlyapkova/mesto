@@ -24,54 +24,13 @@
   <button type="button" class="profile__add-button"></button>
 </section>
 <section class="elements">
-  <div class="elements__item">
-    <img src="./images/baikal.jpg" class="elements__image" alt="Байкал">
-    <div class="elements__container">
-      <h2 class="elements__title">Байкал</h2>
-      <button class="elements__like" type="button"></button>
-    </div>
-  </div>
-  <div class="elements__item">
-    <img src="./images/Karachaevsk.jpg" class="elements__image" alt="Карачаевск">
-    <div class="elements__container">
-      <h2 class="elements__title">Карачаевск</h2>
-      <button class="elements__like" type="button"></button>
-    </div>
-  </div>
-  <div class="elements__item">
-    <img src="./images/Elbrus.jpg" class="elements__image" alt="Эльбрус">
-    <div class="elements__container">
-      <h2 class="elements__title">Гора Эльбрус</h2>
-      <button class="elements__like" type="button"></button>
-    </div>
-  </div>
-  <div class="elements__item">
-    <img src="./images/Dombai.jpg" class="elements__image" alt="Домбай">
-    <div class="elements__container">
-      <h2 class="elements__title">Домбай</h2>
-      <button class="elements__like" type="button"></button>
-    </div>
-  </div>
-  <div class="elements__item">
-    <img src="./images/photo-grid-kamchatka-1.jpg" class="elements__image" alt="Камчатка">
-    <div class="elements__container">
-      <h2 class="elements__title">Камчатка</h2>
-      <button class="elements__like" type="button"></button>
-    </div>
-  </div>
-  <div class="elements__item">
-    <img src="./images/place-karelia.jpg" class="elements__image" alt="Карелия">
-    <div class="elements__container">
-      <h2 class="elements__title">Карелия</h2>
-      <button class="elements__like" type="button"></button>
-    </div>
-  </div>
+
 </section>
 </main>
 <footer class="footer">
   <p class="footer__text">&copy; 2021 Mesto Russia</p>
 </footer>
-<section class="popup"> 
+<section class="popup popup_type_edit"> 
   <div class="popup__container">
     <button type="button" class="popup__close"></button>
     <h2 class="popup__title ">Редактировать профиль</h2>
@@ -82,6 +41,39 @@
     </form>
   </div>
 </section>
+<section class="popup popup_type_add-place"> 
+  <div class="popup__container">
+    <button type="button" class="popup__close popup__close_type_add-place"></button>
+    <h2 class="popup__title ">Новое место</h2>
+    <form class="popup__form popup__form_type_add-place" name="add-place-form">
+      <input type="text" id="place-name" class="popup__item popup__item_type_place-name" name="place-name" placeholder="Название">
+      <input type="url" name="url" id="url" class="popup__item popup__item_type_url" placeholder="Ссылка на картинку">
+      <button type="submit" class="popup__submit-button">Сохранить</button>
+    </form>
+  </div>
+</section>
+
+
+
+<section class="popup popup_type_image"> 
+  <div class="popup__cover">
+    <button type="button" class="popup__close popup__close_type_image"></button>
+    <img src="../mesto/images/photo-grid-kamchatka-1.jpg" alt="" class="popup__image">
+    <h2 class="popup__title popup__title_type_image"></h2>
+  </div>
+</section>
+
+
+<template class="elements-tepmlate">
+  <div class="elements__item">
+    <img src="" class="elements__image" alt="">
+    <button class="elements__delete" type="button"></button>
+    <div class="elements__container">
+      <h2 class="elements__title"></h2>
+      <button class="elements__like" type="button"></button>
+    </div>
+  </div>
+</template>
 <script src="./scripts/index.js"></script>
 </body>
 </html>
