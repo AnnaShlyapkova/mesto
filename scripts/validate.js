@@ -26,12 +26,12 @@ const toggleButtonState = (inputList, buttonElement, config) => {
   const hasNotValidInput = inputList.some(
     (inputElement) => !inputElement.validity.valid);
   
-  if (hasNotValidInput) {
-      buttonElement.setAttribute('disabled', true);
-      buttonElement.classList.add(config.inactiveButtonClass);
-  } else {
-    buttonElement.removeAttribute('disabled');
-    buttonElement.classList.remove(config.inactiveButtonClass);
+    if (hasNotValidInput) { 
+      buttonElement.setAttribute('disabled', true); 
+      buttonElement.classList.add(config.inactiveButtonClass); 
+  } else { 
+    buttonElement.removeAttribute('disabled'); 
+    buttonElement.classList.remove(config.inactiveButtonClass); 
   }
 }
 //Установка слушателей на input

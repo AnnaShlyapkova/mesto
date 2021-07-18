@@ -121,7 +121,8 @@ const addFormUrlElement = document.querySelector('.popup__item_type_url');
 function addFormSubmitHandler(evt) {
     evt.preventDefault();
     item = {name:addFormNameElement.value, link:addFormUrlElement.value};
-    renderElementAndAppend(item);//в этом исправлении карточка добавилась вниз
+    itemElement = renderElement(item);
+    itemContainer.prepend(itemElement);
     closePopup(popupAddElement);
   };
 popupAddElement.addEventListener('submit', addFormSubmitHandler);
