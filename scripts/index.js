@@ -1,30 +1,4 @@
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-      },
-      {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-      },
-      {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-      },
-      {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-      },
-      {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-      },
-      {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-      }
-    ]; 
-    
+
 //Добавляем элементы на страницу
   const itemContainer = document.querySelector('.elements');
   const itemTemplate = document.querySelector('.elements-tepmlate').content;
@@ -41,7 +15,8 @@ const initialCards = [
   function openPopup(popup) {
     popup.classList.add('popup_is-opened');
     document.addEventListener('keydown', closePopupEsc);
-    popup.addEventListener('mousedown', closePopupOverlay)
+    popup.addEventListener('mousedown', closePopupOverlay);
+    
   }
 
   //Закрытие
@@ -82,7 +57,7 @@ const initialCards = [
   itemElement.querySelector('.elements__delete').addEventListener('click', cardDelete);
 //Увеличение
  itemImageElement.addEventListener('click', function() {
-    popupTitleElement.value = itemTextElement.textContent;
+    popupTitleElement.textContent = itemTextElement.textContent;
     popupImageElement.src = itemImageElement.src;
     popupImageElement.alt = itemTextElement.textContent;
     openPopup(popupImage);
@@ -114,7 +89,7 @@ const popupTitleElement = document.querySelector('.popup__title_type_image');
 //Попап добавления новой карточки
 const popupAddElement = document.querySelector('.popup_type_add-place');
 const popupElementAddButton = document.querySelector('.profile__add-button');
-
+const popupFormAdd = document.querySelector('.popup__form_type_add-place');
 
 popupOpenElement.addEventListener('click', function() {
   formNameElememt.value = profileNameElement.textContent;
@@ -137,6 +112,7 @@ popupElementAddButton.addEventListener('click', function() {
   openPopup(popupAddElement);
   const buttonElement = popupAddElement.querySelector('.popup__submit-button');
   disableButton(buttonElement);
+  popupFormAdd.reset();
 });
 
 //Новая карточка
@@ -145,8 +121,7 @@ const addFormUrlElement = document.querySelector('.popup__item_type_url');
 function addFormSubmitHandler(evt) {
     evt.preventDefault();
     item = {name:addFormNameElement.value, link:addFormUrlElement.value};
-    itemElement = renderElement(item);
-    itemContainer.prepend(itemElement);
+    renderElementAndAppend(item);//в этом исправлении карточка добавилась вниз
     closePopup(popupAddElement);
   };
 popupAddElement.addEventListener('submit', addFormSubmitHandler);
@@ -157,8 +132,8 @@ function cardDelete(evt){
   itemElement.remove();
 }
 //Закрытие попапа 
-const popupCloseElement = document.querySelectorAll('.popup__close')
-popupCloseElement.forEach((element) => {element.addEventListener('click', function(evt) {
+const popupCloseElements = document.querySelectorAll('.popup__close')
+popupCloseElements.forEach((element) => {element.addEventListener('click', function(evt) {
 closePopup(evt.target.closest('.popup'))})
 })
 

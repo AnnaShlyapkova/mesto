@@ -35,7 +35,7 @@ const toggleButtonState = (inputList, buttonElement) => {
   }
 }
 //Установка слушателей на input
-const setEventListeners = (formElement) => {
+const setEventListeners = (formElement,config) => {
     formElement.addEventListener('submit', (evt) => {
         evt.preventDefault();
 });
@@ -49,15 +49,17 @@ inputList.forEach(inputElement => {
 })
 };
 
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll('.popup__form'));
-  formList.forEach(setEventListeners);
-};
+const enableValidation = (config) => { 
+    const formList = Array.from(document.querySelectorAll(config.formSelector)); 
+    const setEventListenersWithConfig = (formElement) => { setEventListeners(formElement,config) }
+    formList.forEach(setEventListenersWithConfig); 
+  }; 
+
 
 enableValidation({
-    formSelector: '.popup__form',
-    inputSelector: '.popup__item',
-    submitButtonSelector: '.popup__submit-button',
-    inactiveButtonClass: 'popup__submit-button_disabled',
-    inputErrorClass: 'popup__input-error',
-  }); 
+    formSelector: '.popup__form', 
+    inputSelector: '.popup__item', 
+    submitButtonSelector: '.popup__submit-button', 
+    inactiveButtonClass: '.popup__submit-button_disabled', 
+    inputErrorClass: '.popup__input-error',
+}); 
